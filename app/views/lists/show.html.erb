@@ -1,4 +1,20 @@
 <div class="panel-body">
-	<h2><%= @list.title %>:</h2>
+	<h3><%= @list.title %>:</h3>
+	
+<ul>
+	<% @list.items.each do |item| %>
+		<li>
+			<%= item.name %>
+		</li>
+	<% end %>
+</ul>
+
+
+
+</div>
+
+<div class="panel-body">
+
+<button class="btn btn-danger" type="submit"><%= link_to "Add Item", new_item_path(@list) %></button>
 
 </div>

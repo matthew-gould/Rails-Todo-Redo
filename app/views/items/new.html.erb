@@ -1,0 +1,16 @@
+<% if @item.errors.any? %>
+  <ul>
+    <% @item.errors.full_messages.each do |err| %>
+      <li><%= err %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<div class="panel-body">
+<h1>Add an item to <%= @list.title %>: </h1>
+<%= form_for @item do |f| %>
+<%= f.text_field :name, :placeholder => "Name of Item" %>
+<%= f.text_field :due_date, :placeholder => "day/month/year" %>
+<button>Create</button>
+<% end %>
+</div>

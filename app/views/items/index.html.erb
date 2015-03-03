@@ -1,0 +1,30 @@
+<div class="panel-body">
+<h3>Shit You Need To Do: </h3>
+</div>
+
+<div class="panel-body">
+<table class="table table-striped table-hover table-bordered table-condensed">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>List</th>
+            <th>Due By</th>
+            <th>Completed?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @items.each do |item| %>
+            <tr>
+              <td><%= item.name.capitalize %></td>
+              <td><%= List.find(item.list_id).title %></td>
+              <td><%= item.due_date %></td>
+              <% if item.completed == true %>
+                <td class="success"><%= item.completed %></td>
+                <% else %>
+                <td class="danger"><%= item.completed %></td>
+                <% end %>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      </div>

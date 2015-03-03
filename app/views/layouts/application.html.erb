@@ -13,6 +13,7 @@
 <button><%= link_to "Home", root_path %></button>
 <button><%= link_to "New List", new_list_path %></button>
 <button><%= link_to "All Lists", lists_path %></button>
+<button><%= link_to "All Items", all_items_path %></button>
 
 <% if current_user %>
   <span><%= current_user.email %></span>
@@ -24,9 +25,6 @@
 
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
-
-
-
 
 <%= yield %>
 

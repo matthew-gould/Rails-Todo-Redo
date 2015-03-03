@@ -1,4 +1,5 @@
 class ListsController < ApplicationController
+  before_action :authenticate_user!
 
   def new
     @list = List.new
@@ -6,9 +7,9 @@ class ListsController < ApplicationController
 
   def create
     list_params = params[:list]
-    @list = List.new title: list_params[:title].downcase.capitalize, user_id: current_user.id
+    @list = current_user.lists.new title: list_params[:title].downcase.capitalize
     if @list.save
-      flash[:notice] = "Post created!"
+      flash[:notice] = "List created!"
       redirect_to new_list_path(@list)
     else
       render :new
