@@ -1,11 +1,11 @@
 class CreateItems < ActiveRecord::Migration
   def change
     create_table :items do |t|
-      t.string, :name
-      t.string, :due_date
-      t.boolean, :completed
-      t.string :default
-      t.string :false
+      t.string :name
+      t.datetime :due_date
+      t.boolean :completed, null: false, default: false
+      t.integer :user_id
+      t.integer :list_id
 
       t.timestamps null: false
     end
