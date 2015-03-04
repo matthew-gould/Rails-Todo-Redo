@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get '/items' => 'items#index', as: 'all_items'
 
   get '/items/random' => 'items#random', as: 'random_item'
+  delete '/items/:item_id/delete' => 'items#delete', as: 'delete'
   
   get '/items/:item_id' => 'items#show', as: 'item'
   get '/items/:item_id/edit' => 'items#edit', as: 'edit'

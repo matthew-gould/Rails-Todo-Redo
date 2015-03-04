@@ -14,3 +14,7 @@
 <div class="panel-body">
 <button class="btn btn-danger" type="submit"><%= link_to "Edit Item", edit_path(@item) %></button>
 </div>
+
+<div class="panel-body">
+  <%= button_to "Delete Item", { action: "delete", id: @item.id }, method: :delete %>
+</div>

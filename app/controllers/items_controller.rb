@@ -47,4 +47,13 @@ class ItemsController < ApplicationController
     end
   end
 
+  def delete
+    @item = Item.find params[:item_id]
+    if @item.delete
+      redirect_to all_items_path
+    else
+      render :show
+    end
+  end
+
 end

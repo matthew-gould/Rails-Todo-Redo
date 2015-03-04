@@ -1,4 +1,6 @@
-<h1>Editing<%= @item.name %></h1>
+<div class="panel-body">
+
+<h1>Editing <%= @item.name %></h1>
 
 <% if @item.errors.any? %>
   <ul>
@@ -12,3 +14,4 @@
   <%= f.text_field :due_date, :placeholder => "Change Due Date" %>
   <button>Submit</button>
 <% end %>
+</div>

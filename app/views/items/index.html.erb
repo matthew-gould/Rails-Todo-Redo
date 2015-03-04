@@ -16,7 +16,7 @@
           <% @items.each do |item| %>
             <tr>
               <td><%= link_to item.name.capitalize, item_path(item) %></td>
-              <td><%= List.find(item.list_id).title %></td>
+              <td><%= link_to List.find(item.list_id).title, list_path(item.list_id) %></td>
               <td><%= item.due_date %></td>
               <% if item.completed == true %>
                 <td class="success"><%= item.completed %></td>
