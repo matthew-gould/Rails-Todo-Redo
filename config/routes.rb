@@ -13,4 +13,10 @@ Rails.application.routes.draw do
   post '/lists/:list_id/items' => 'items#create', as: 'items'
   get '/items' => 'items#index', as: 'all_items'
 
+  get '/items/random' => 'items#random', as: 'random_item'
+  
+  get '/items/:item_id' => 'items#show', as: 'item'
+  get '/items/:item_id/edit' => 'items#edit', as: 'edit'
+  patch '/items/:item_id' => 'items#update'
+
 end

@@ -22,4 +22,29 @@ class ItemsController < ApplicationController
     @items = Item.all
   end
 
+   def show
+    @item = Item.find params[:item_id]
+  end
+
+  def random
+    @item = current_user.items.where("due_date is not null").order("RANDOM()").first
+      if @item == nil
+        @item = current_user.items.where(completed: false).order("RANDOM()").first
+      end
+  end
+
+  def edit
+    @item = Item.find params[:item_id]
+  end  
+
+  def update
+    @item = Item.find params[:item_id]
+    item_params =params[:item]
+    if @item.update due_date: params[:item][:due_date]
+      redirect_to all_items_path
+    else
+      render :edit
+    end
+  end
+
 end

@@ -1,0 +1,16 @@
+<div class="panel-body">
+	<h4><%= @item.name %></h4>
+  <ul>
+    <li>
+      <p>Due On: <%= @item.due_date %></p>
+    </li>
+    <li>
+    <p>Completed? <%= @item.completed %></p>
+    </li>
+</ul>
+
+</div>
+
+<div class="panel-body">
+<button class="btn btn-danger" type="submit"><%= link_to "Edit Item", edit_path(@item) %></button>
+</div>
